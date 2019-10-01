@@ -16,6 +16,10 @@ android {
             minifyEnabled false
         }
     }
+    compileOptions {
+        sourceCompatibility = 1.8
+        targetCompatibility = 1.8
+    }
 }
 
 dependencies {
@@ -25,4 +29,5 @@ dependencies {
     testImplementation group: 'io.appium', name: 'java-client', version: '7.2.0'
     testImplementation group: 'io.cucumber', name: 'cucumber-java', version: '4.7.2'
     testImplementation group: 'io.cucumber', name: 'cucumber-testng', version: '4.7.2'
+    testImplementation group: 'org.slf4j', name: 'slf4j-simple', version: '1.7.28'
 }

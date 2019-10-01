@@ -14,7 +14,7 @@ import ru.falseteam.appiumcucumbertestng.driver.Driver;
 @CucumberOptions(
         monochrome = true,
         tags = "@bvt",
-        features = Constants.FEATURES_PATH,
+        features = Constants.PROJECT_FEATURES_PATH,
         glue = Constants.GLUE,
         plugin = {
                 "pretty",
