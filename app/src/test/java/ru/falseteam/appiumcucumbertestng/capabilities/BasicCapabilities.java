@@ -1,4 +1,4 @@
-package ru.falseteam.appiumcucumbertestng.driver;
+package ru.falseteam.appiumcucumbertestng.capabilities;
 
 public class BasicCapabilities extends Capabilities {
 

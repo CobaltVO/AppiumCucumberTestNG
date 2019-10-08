@@ -1,4 +1,4 @@
-package ru.falseteam.appiumcucumbertestng;
+package ru.falseteam.appiumcucumbertestng.cucumber;
 
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -10,6 +10,8 @@ import io.cucumber.testng.CucumberOptions;
 import io.cucumber.testng.PickleEventWrapper;
 import io.cucumber.testng.TestNGCucumberRunner;
 import ru.falseteam.appiumcucumbertestng.driver.Driver;
+import ru.falseteam.appiumcucumbertestng.util.Constants;
+import ru.falseteam.appiumcucumbertestng.util.Helpers;
 
 @CucumberOptions(
         monochrome = true,
@@ -31,6 +33,7 @@ public class CucumberRunner {
     public void setUp() {
         runner = new TestNGCucumberRunner(CucumberRunner.class);
         Driver.setUp();
+        Helpers.logDriverCapabilities();
     }
 
     @AfterClass

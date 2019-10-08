@@ -1,4 +1,4 @@
-package ru.falseteam.appiumcucumbertestng;
+package ru.falseteam.appiumcucumbertestng.util;
 
 import java.nio.file.Paths;
 
