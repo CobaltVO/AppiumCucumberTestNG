@@ -7,16 +7,14 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import ru.falseteam.appiumcucumbertestng.driver.Driver;
 import ru.falseteam.appiumcucumbertestng.pages.BasicPage;
+import ru.falseteam.appiumcucumbertestng.pages.locators.Id;
 
 public class TurboPage extends BasicPage {
 
-    @AndroidFindBy(id = "com.chrome.canary:id/fre_pager")
-    public WebElement page;
-
-    @AndroidFindBy(id = "com.chrome.canary:id/enable_data_saver_switch")
+    @AndroidFindBy(id = Id.SWITCH_TURBO)
     public WebElement switchTurbo;
 
-    @AndroidFindBy(id = "com.chrome.canary:id/next_button")
+    @AndroidFindBy(id = Id.BUTTON_CONTINUE)
     public WebElement buttonContinue;
 
     @Override
@@ -24,13 +22,10 @@ public class TurboPage extends BasicPage {
         return Driver.driver;
     }
 
-    public TurboPage() {
-        super();
-    }
-
+    @Override
     public void waitPageVisible(int timeout) {
         super.waitUntil(timeout, ExpectedConditions.visibilityOfAllElements(
-                page, switchTurbo, buttonContinue));
+                switchTurbo, buttonContinue));
     }
 
     public boolean isSwitchTurboOn() {

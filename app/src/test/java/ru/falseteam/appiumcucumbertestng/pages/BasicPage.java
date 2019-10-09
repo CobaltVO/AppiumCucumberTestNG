@@ -13,11 +13,13 @@ import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 
 public abstract class BasicPage {
 
-    public abstract WebDriver getDriver();
-
     public BasicPage() {
         PageFactory.initElements(new AppiumFieldDecorator(getDriver()), this);
     }
+
+    public abstract WebDriver getDriver();
+
+    public abstract void waitPageVisible(int timeout);
 
     public boolean checkboxIsChecked(WebElement checkbox) {
         return checkbox.getAttribute("checked").equals("true");

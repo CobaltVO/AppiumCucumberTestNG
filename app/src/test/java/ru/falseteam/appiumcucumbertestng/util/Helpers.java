@@ -8,6 +8,7 @@ import java.net.ServerSocket;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Arrays;
 import java.util.Optional;
 import java.util.regex.Pattern;
 import java.util.stream.Stream;
@@ -49,5 +50,13 @@ public class Helpers {
                 .getCapabilities()
                 .asMap()
                 .forEach((key, value) -> Logger.debug((key + ": " + value)));
+    }
+
+    public static String toOneWord(String s) {
+        StringBuilder sb = new StringBuilder();
+        Arrays.asList(s.split("\\W")).forEach(
+                out -> sb.append(out.replace(out.charAt(0), Character.toUpperCase(out.charAt(0))))
+        );
+        return sb.toString();
     }
 }

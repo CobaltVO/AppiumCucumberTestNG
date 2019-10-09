@@ -9,13 +9,19 @@ import ru.falseteam.appiumcucumbertestng.driver.Driver;
 import ru.falseteam.appiumcucumbertestng.pages.BasicPage;
 import ru.falseteam.appiumcucumbertestng.pages.locators.Id;
 
-public class WelcomePage extends BasicPage {
+public class MainPage extends BasicPage {
 
-    @AndroidFindBy(id = Id.CHECKBOX_ACCEPT)
-    public WebElement checkboxAccept;
+    @AndroidFindBy(id = Id.EDIT_TEXT_SEARCH)
+    WebElement editTextSearch;
 
-    @AndroidFindBy(id = Id.BUTTON_TERMS_ACCEPT)
-    public WebElement buttonContinue;
+    @AndroidFindBy(id = Id.BUTTON_HOME)
+    WebElement buttonHome;
+
+    @AndroidFindBy(id = Id.BUTTON_TABS)
+    WebElement buttonTabs;
+
+    @AndroidFindBy(id = Id.BUTTON_SETTINGS)
+    WebElement buttonSettings;
 
     @Override
     public WebDriver getDriver() {
@@ -25,10 +31,6 @@ public class WelcomePage extends BasicPage {
     @Override
     public void waitPageVisible(int timeout) {
         super.waitUntil(timeout, ExpectedConditions.visibilityOfAllElements(
-                checkboxAccept, buttonContinue));
-    }
-
-    public boolean checkboxAcceptIsChecked() {
-        return super.checkboxIsChecked(checkboxAccept);
+                editTextSearch, buttonHome, buttonTabs, buttonSettings));
     }
 }
