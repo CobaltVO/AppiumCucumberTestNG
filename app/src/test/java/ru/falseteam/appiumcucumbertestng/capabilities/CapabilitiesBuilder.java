@@ -3,12 +3,14 @@ package ru.falseteam.appiumcucumbertestng.capabilities;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import io.appium.java_client.remote.AndroidMobileCapabilityType;
+import io.appium.java_client.remote.AutomationName;
 import io.appium.java_client.remote.MobileCapabilityType;
+import io.appium.java_client.remote.MobilePlatform;
 
 public class CapabilitiesBuilder extends BasicCapabilities {
 
-    private static final String PLATFORM_NAME = "Android";
-    private static final String AUTOMATION_NAME = "UiAutomator2";
+    private static final String PLATFORM_NAME = MobilePlatform.ANDROID;
+    private static final String AUTOMATION_NAME = AutomationName.ANDROID_UIAUTOMATOR2;
 
     private static final int ADB_EXEC_TIMEOUT_MS = 180 * 1000;
     private static final int NEW_COMMAND_TIMEOUT_MS = 180 * 1000;
