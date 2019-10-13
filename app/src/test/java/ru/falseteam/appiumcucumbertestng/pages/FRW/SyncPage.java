@@ -12,10 +12,10 @@ import ru.falseteam.appiumcucumbertestng.pages.locators.Id;
 public class SyncPage extends BasicPage {
 
     @AndroidFindBy(id = Id.BUTTON_NO_THANKS)
-    public WebElement buttonNoThanks;
+    private WebElement buttonNoThanks;
 
     @AndroidFindBy(id = Id.BUTTON_ADD_ACCOUNT)
-    public WebElement buttonAddAccount;
+    private WebElement buttonAddAccount;
 
     @Override
     public WebDriver getDriver() {
@@ -24,7 +24,16 @@ public class SyncPage extends BasicPage {
 
     @Override
     public void waitPageVisible(int timeout) {
-        super.waitUntil(timeout, ExpectedConditions.visibilityOfAllElements(
-                buttonNoThanks, buttonAddAccount));
+        super.waitUntil(timeout,
+                ExpectedConditions.visibilityOfAllElements(buttonNoThanks, buttonAddAccount),
+                "sync page didn't become visible after " + timeout + " seconds");
+    }
+
+    public void clickButtonNoThanks() {
+        buttonNoThanks.click();
+    }
+
+    public void clickButtonAddAccount() {
+        buttonAddAccount.click();
     }
 }

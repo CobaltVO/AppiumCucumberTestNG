@@ -12,10 +12,10 @@ import ru.falseteam.appiumcucumbertestng.pages.locators.Id;
 public class WelcomePage extends BasicPage {
 
     @AndroidFindBy(id = Id.CHECKBOX_ACCEPT)
-    public WebElement checkboxAccept;
+    private WebElement checkboxAccept;
 
     @AndroidFindBy(id = Id.BUTTON_TERMS_ACCEPT)
-    public WebElement buttonContinue;
+    private WebElement buttonContinue;
 
     @Override
     public WebDriver getDriver() {
@@ -24,8 +24,17 @@ public class WelcomePage extends BasicPage {
 
     @Override
     public void waitPageVisible(int timeout) {
-        super.waitUntil(timeout, ExpectedConditions.visibilityOfAllElements(
-                checkboxAccept, buttonContinue));
+        super.waitUntil(timeout,
+                ExpectedConditions.visibilityOfAllElements(checkboxAccept, buttonContinue),
+                "welcome page didn't become visible after " + timeout + " seconds");
+    }
+
+    public void clickCheckboxAccept() {
+        checkboxAccept.click();
+    }
+
+    public void clickButtonContinue() {
+        buttonContinue.click();
     }
 
     public boolean checkboxAcceptIsChecked() {

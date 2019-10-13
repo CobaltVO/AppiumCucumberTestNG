@@ -36,4 +36,10 @@ public class Id {
 
     public static final String BUTTON_SETTINGS
             = "com.chrome.canary:id/menu_button";
+
+    public static final String CONTAINER_RECENT_SITES
+            = "com.chrome.canary:id/tile_grid_layout";
+
+    public static final String BUTTON_RECENT_SITE
+            = "com.chrome.canary:id/tile_view_title";
 }

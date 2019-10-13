@@ -18,3 +18,8 @@ Feature: Chrome
     Given sync page appears
     When click no thanks button at the sync page
     Then main page of Chrome appears
+
+    When click YouTube recent site
+    Then wait for 3 seconds
+    When click android back button
+    Then wait for 3 seconds

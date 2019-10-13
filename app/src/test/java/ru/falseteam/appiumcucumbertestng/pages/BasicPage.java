@@ -7,6 +7,8 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
+import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.function.Function;
 
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
@@ -25,11 +27,23 @@ public abstract class BasicPage {
         return checkbox.getAttribute("checked").equals("true");
     }
 
-    public <V> void waitUntil(int timeout, Function<? super WebDriver, V> conditions) {
+    public <V> void waitUntil(int timeout, Function<? super WebDriver, V> conditions, String errorMessage) {
         try {
             new WebDriverWait(getDriver(), timeout).until(conditions);
         } catch (TimeoutException e) {
-            Assert.fail("Don't become visible after " + timeout + " seconds", e);
+            Assert.fail(errorMessage);
+        }
+    }
+
+    public void clickToElementWithText(List<WebElement> elements, String expectedText, String errorMessage) {
+        try {
+            elements.stream()
+                    .filter(element -> element.getText().equals(expectedText))
+                    .findFirst()
+                    .orElseThrow(NoSuchElementException::new)
+                    .click();
+        } catch (NoSuchElementException e) {
+            Assert.fail(errorMessage);
         }
     }
 }

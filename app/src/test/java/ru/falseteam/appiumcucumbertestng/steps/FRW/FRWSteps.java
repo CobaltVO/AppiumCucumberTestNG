@@ -30,14 +30,14 @@ public class FRWSteps extends Driver {
     @Then("set checkbox to disabled at the welcome page")
     public void setCheckboxToDisabledAtTheWelcomePage() {
         if (welcomePage.checkboxAcceptIsChecked()) {
-            welcomePage.checkboxAccept.click();
+            welcomePage.clickCheckboxAccept();
         }
         Logger.debug("checkbox 'Accept' was unchecked");
     }
 
     @And("click continue button at the welcome page")
     public void clickContinueAtTheWelcomePage() {
-        welcomePage.buttonContinue.click();
+        welcomePage.clickButtonContinue();
         Logger.debug("'Continue' button was clicked");
     }
 
@@ -50,14 +50,14 @@ public class FRWSteps extends Driver {
     @When("set switch to disabled at the turbo page")
     public void setSwitchToDisabledAtTheTurboPage() {
         if (turboPage.isSwitchTurboOn()) {
-            turboPage.switchTurbo.click();
+            turboPage.clickSwitchTurbo();
         }
         Logger.debug("switch 'Turbo' was unchecked");
     }
 
     @Then("click continue button at the turbo page")
     public void clickContinueButtonAtTheTurboPage() {
-        turboPage.buttonContinue.click();
+        turboPage.clickButtonContinue();
         Logger.debug("'Continue' button was clicked at the 'Turbo' page");
     }
 
@@ -75,7 +75,7 @@ public class FRWSteps extends Driver {
 
     @Then("click OK button at the search engine page")
     public void clickOKButtonAtTheSearchEnginePage() {
-        searchEnginePage.buttonOk.click();
+        searchEnginePage.clickButtonOk();
         Logger.debug("'OK' button was clicked at the 'Search Engine' page");
     }
 
@@ -87,7 +87,7 @@ public class FRWSteps extends Driver {
 
     @Then("click no thanks button at the sync page")
     public void clickNoThanksButtonAtTheSyncPage() {
-        syncPage.buttonNoThanks.click();
+        syncPage.clickButtonNoThanks();
         Logger.debug("'No, thanks' button was clicked at the 'Sync' page");
     }
 
